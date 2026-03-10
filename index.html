@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NMCP – SNT &amp; GC Prioritization Task Tracker | ICF-SL</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- ══════════════ INLINE SVG SPRITE ══════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="ic-download" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 3v10M6 9l4 4 4-4"/><path d="M3 15h14"/>
+  </symbol>
+  <symbol id="ic-edit" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.5 3.5a2.121 2.121 0 013 3L6 18H3v-3L14.5 3.5z"/>
+  </symbol>
+  <symbol id="ic-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/>
+  </symbol>
+  <symbol id="ic-print" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 7V3h10v4"/><rect x="3" y="7" width="14" height="8" rx="1.5"/><path d="M5 11h10M5 15h4"/>
+  </symbol>
+  <symbol id="ic-csv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="14" height="14" rx="1.5"/><path d="M3 8h14M3 13h14M8 3v14"/>
+  </symbol>
+  <symbol id="ic-task" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="3" width="12" height="15" rx="1.5"/><path d="M8 3v2h4V3M7 10h6M7 13h4"/>
+  </symbol>
+  <symbol id="ic-person" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10" cy="6" r="3"/><path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7"/>
+  </symbol>
+  <symbol id="ic-search" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8.5" cy="8.5" r="5"/><path d="M15 15l-3.5-3.5"/>
+  </symbol>
+  <symbol id="ic-status" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="2" width="6" height="16" rx="3"/>
+    <circle cx="10" cy="6"  r="1.3" fill="currentColor" stroke="none"/>
+    <circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"/>
+    <circle cx="10" cy="14" r="1.3" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ic-notes" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 3h10a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/>
+    <path d="M7 8h6M7 11h4"/>
+  </symbol>
+  <symbol id="ic-cog" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10" cy="10" r="2.5"/>
+    <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42"/>
+  </symbol>
+  <symbol id="ic-x" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <path d="M4 4l8 8M12 4l-8 8"/>
+  </symbol>
+  <symbol id="ic-plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <path d="M8 3v10M3 8h10"/>
+  </symbol>
+  <symbol id="ic-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 8l4 4 6-7"/>
+  </symbol>
+  <symbol id="ic-clock" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+    <circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2.5 1.5"/>
+  </symbol>
+  <symbol id="ic-circle" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+    <circle cx="8" cy="8" r="6"/>
+  </symbol>
+  <symbol id="ic-eye" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+    <path d="M2 10s3-6 8-6 8 6 8 6-3 6-8 6-8-6-8-6z"/>
+    <circle cx="10" cy="10" r="2.5"/>
+  </symbol>
+  <symbol id="ic-controls" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 6h12M4 10h8M4 14h5"/>
+  </symbol>
+  <!-- chain link / deliverable link -->
+  <symbol id="ic-link" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 11a4 4 0 005.66 0l2-2A4 4 0 009.99 3.34L8.5 4.83"/>
+    <path d="M12 9a4 4 0 00-5.66 0l-2 2A4 4 0 0010.01 16.66L11.5 15.17"/>
+  </symbol>
+  <!-- link-off / no link set -->
+  <symbol id="ic-link-off" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 11a4 4 0 005.66 0l2-2A4 4 0 009.99 3.34L8.5 4.83M12 9a4 4 0 00-5.66 0l-2 2A4 4 0 0010.01 16.66L11.5 15.17"/>
+    <line x1="3" y1="3" x2="17" y2="17"/>
+  </symbol>
+</svg>
+
+<style>
+/* ═══════════════════════════════════════════
+   ICF-SL DESIGN SYSTEM  —  Blue & White
+   ═══════════════════════════════════════════ */
+:root {
+  /* Core brand */
+  --navy:      #004080;
+  --navy-dark: #002d5a;
+  --navy-mid:  #005099;
+  --navy-lt:   #1a6bb5;
+  --navy-xlt:  #e8f0fb;
+  --gold:      #C8973A;
+  --gold-lt:   #f5b942;
+  --gold-pale: #fef8ec;
+  /* Page */
+  --white:  #ffffff;
+  --bg:     #f0f5fb;
+  --border: #c5d8f0;
+  --text:   #1a2f47;
+  --text-lt:#4a6585;
+  /* Status */
+  --done-bg:#e3f7ed; --done-tx:#0b6338; --done-br:#2ecc82;
+  --pend-bg:#fff3dc; --pend-tx:#7a4500; --pend-br:#f0a030;
+  --ny-bg:  #fce8e8; --ny-tx:  #7d1515; --ny-br:  #d94444;
+  /* Link */
+  --link-set:   #0056b3;
+  --link-unset: #b0bec5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg); color: var(--text); min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ic    { display:inline-block; width:15px; height:15px; vertical-align:middle; flex-shrink:0; }
+.ic-sm { width:13px; height:13px; }
+.ic-md { width:17px; height:17px; }
+.ic-lg { width:19px; height:19px; }
+
+/* ══ HEADER ══════════════════════════════════ */
+.header {
+  background: var(--navy-dark);
+  position: relative; overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+}
+.header::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(
+      -55deg,
+      transparent 0px, transparent 38px,
+      rgba(255,255,255,.018) 38px, rgba(255,255,255,.018) 76px
+    );
+}
+.header::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 50%, var(--gold) 100%);
+}
+.header-inner {
+  position:relative; z-index:1;
+  display:flex; align-items:center; gap:24px;
+  padding:20px 40px 24px;
+}
+.logo-wrap {
+  flex-shrink:0; width:76px; height:76px;
+  background: var(--white);
+  border: 2px solid rgba(200,151,58,.5);
+  border-radius:8px; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+.logo-wrap img {
+  width:100%; height:100%; object-fit:contain; padding:4px;
+}
+/* Fallback if image not found */
+.logo-wrap .logo-fallback {
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:17px;
+  color:var(--navy-dark); letter-spacing:1px; text-align:center; line-height:1.2;
+}
+.header-text { flex:1; min-width:0; }
+.header-text h1 {
+  font-family:'Oswald',sans-serif; font-weight:600; font-size:23px;
+  color:var(--white); letter-spacing:0.8px; text-transform:uppercase; line-height:1.2;
+}
+.header-text .sub {
+  color:rgba(255,255,255,.6); font-size:12.5px; margin-top:5px;
+  font-weight:300; letter-spacing:0.3px;
+}
+.header-text .sub strong { color:var(--gold-lt); font-weight:600; }
+.header-meta { flex-shrink:0; text-align:right; }
+.badge {
+  display:inline-block; background:rgba(200,151,58,.2);
+  border:1px solid rgba(200,151,58,.6); color:var(--gold-lt);
+  font-family:'Oswald',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:1.4px; text-transform:uppercase;
+  padding:4px 14px; border-radius:3px; margin-bottom:7px;
+}
+.date-lbl { color:rgba(255,255,255,.45); font-size:12px; display:block; }
+
+/* ══ TOOLBAR ═════════════════════════════════ */
+.toolbar {
+  background:var(--white);
+  border-bottom:2px solid var(--border);
+  padding:11px 40px;
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  box-shadow: 0 2px 12px rgba(0,64,128,.06);
+}
+.toolbar-label {
+  font-family:'Oswald',sans-serif; font-size:12.5px; font-weight:600;
+  color:var(--navy); letter-spacing:0.8px; text-transform:uppercase;
+  display:flex; align-items:center; gap:7px;
+}
+.btn {
+  font-family:'Oswald',sans-serif; font-size:12px; font-weight:500;
+  letter-spacing:0.7px; text-transform:uppercase;
+  padding:7px 15px; border-radius:4px; cursor:pointer;
+  border:1.5px solid transparent; transition:all .15s;
+  display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+  line-height:1;
+}
+.btn-navy {
+  background:var(--navy); color:var(--white); border-color:var(--navy);
+}
+.btn-navy:hover { background:var(--navy-mid); border-color:var(--navy-mid); }
+.btn-gold {
+  background:var(--gold); color:var(--navy-dark); border-color:var(--gold);
+  font-weight:600;
+}
+.btn-gold:hover { background:var(--gold-lt); border-color:var(--gold-lt); }
+.btn-outline {
+  background:var(--white); color:var(--navy); border-color:var(--border);
+}
+.btn-outline:hover { border-color:var(--navy); background:var(--navy-xlt); }
+.btn-danger {
+  background:#fce8e8; color:#7d1515; border-color:#d94444;
+}
+.btn-danger:hover { background:#d94444; color:var(--white); }
+
+.tsep { height:26px; width:1px; background:var(--border); margin:0 2px; }
+
+.edit-ind {
+  font-size:12px; color:var(--text-lt);
+  display:flex; align-items:center; gap:6px;
+}
+.edit-ind .dot {
+  width:7px; height:7px; border-radius:50%;
+  background:#b0bec5; transition:background .2s; flex-shrink:0;
+}
+.edit-ind.active .dot  { background:var(--done-br); }
+.edit-ind.active       { color:var(--done-tx); }
+
+.stats-row { margin-left:auto; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.stat-chip {
+  font-family:'Oswald',sans-serif; font-size:12px; font-weight:500;
+  padding:4px 12px; border-radius:20px; letter-spacing:0.3px;
+  white-space:nowrap; display:inline-flex; align-items:center; gap:5px;
+  line-height:1;
+}
+.chip-done  { background:var(--done-bg); color:var(--done-tx); border:1px solid var(--done-br); }
+.chip-pend  { background:var(--pend-bg); color:var(--pend-tx); border:1px solid var(--pend-br); }
+.chip-notyet{ background:var(--ny-bg);   color:var(--ny-tx);   border:1px solid var(--ny-br);   }
+
+/* ══ SECTION LABELS ══════════════════════════ */
+.container { padding:26px 40px 64px; }
+
+.section-label {
+  display:flex; align-items:center; gap:12px; margin:30px 0 10px;
+}
+.section-label .tag {
+  font-family:'Oswald',sans-serif; font-size:10.5px; font-weight:600;
+  letter-spacing:1.6px; text-transform:uppercase;
+  background:var(--navy); color:var(--gold-lt);
+  padding:3px 11px; border-radius:3px; flex-shrink:0;
+}
+.section-label h2 {
+  font-family:'Oswald',sans-serif; font-size:15.5px; font-weight:600;
+  color:var(--navy); letter-spacing:0.3px;
+}
+.section-label::after {
+  content:''; flex:1; height:1.5px;
+  background:linear-gradient(90deg,var(--gold) 0%,transparent 100%);
+  border-radius:2px; min-width:20px;
+}
+
+/* ══ TABLE WRAPPER ═══════════════════════════ */
+.tbl-wrap {
+  background:var(--white);
+  border:1.5px solid var(--navy);
+  border-radius:6px; overflow:hidden;
+  box-shadow:
+    0 0 0 4px rgba(0,64,128,.07),
+    0 4px 20px rgba(0,64,128,.09);
+  margin-bottom:6px;
+}
+
+table { width:100%; border-collapse:collapse; font-size:13px; }
+
+/* Header */
+thead tr {
+  background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy) 100%);
+}
+thead th {
+  font-family:'Oswald',sans-serif; font-weight:500;
+  font-size:11px; letter-spacing:1.1px; text-transform:uppercase;
+  color:var(--gold-lt); padding:10px 12px; text-align:left;
+  white-space:nowrap; border-right:1px solid rgba(255,255,255,.08);
+  user-select:none;
+}
+thead th:last-child { border-right:none; }
+.th-i { display:flex; align-items:center; gap:6px; }
+.th-i svg { opacity:.65; }
+
+/* Body */
+tbody tr {
+  border-bottom:1px solid var(--border);
+  transition:background .1s;
+}
+tbody tr:last-child { border-bottom:none; }
+tbody tr:nth-child(even) { background:var(--navy-xlt); }
+tbody tr:hover { background:#d6e6f8; }
+
+td {
+  padding:9px 12px; vertical-align:top;
+  border-right:1px solid var(--border); line-height:1.5;
+}
+td:last-child { border-right:none; }
+
+/* Column widths */
+.c-no   { width:36px; text-align:center; font-weight:700; color:var(--navy); font-size:12.5px; }
+.c-task { min-width:230px; }
+.c-who  { min-width:155px; }
+.c-app  { min-width:195px; }
+.c-st   { width:115px; }
+.c-note { min-width:140px; }
+.c-link { width:46px; text-align:center; }
+.c-act  { width:36px; text-align:center; }
+
+/* Editable cells */
+td[contenteditable] {
+  cursor:default; outline:none; border-radius:3px;
+  transition:background .12s, box-shadow .12s;
+}
+td[contenteditable="true"] { cursor:text; }
+td[contenteditable="true"]:focus {
+  background:#dbeeff !important;
+  box-shadow:inset 0 0 0 2px var(--navy-mid);
+}
+td[contenteditable="true"]:empty::before {
+  content: attr(data-ph);
+  color: #aab8cc;
+  font-style: italic;
+  pointer-events: none;
+}
+
+/* Status select */
+.status-sel {
+  font-family:'Oswald',sans-serif; font-size:11px; font-weight:500;
+  letter-spacing:0.4px; text-transform:uppercase;
+  padding:4px 22px 4px 8px; border-radius:4px;
+  cursor:pointer; width:100%;
+  appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 6px center;
+  transition:all .13s; border:1px solid transparent;
+}
+.status-sel:focus { outline:none; }
+.s-done  { background:var(--done-bg); color:var(--done-tx); border-color:var(--done-br)!important; }
+.s-pend  { background:var(--pend-bg); color:var(--pend-tx); border-color:var(--pend-br)!important; }
+.s-notyet{ background:var(--ny-bg);   color:var(--ny-tx);   border-color:var(--ny-br)!important;   }
+
+/* Person pill */
+.pill {
+  display:inline-flex; align-items:center; gap:4px;
+  background:var(--navy); color:var(--white);
+  font-size:11px; font-weight:600;
+  padding:2px 8px; border-radius:12px;
+  margin:1px 2px; border:1px solid var(--navy-lt);
+  white-space:nowrap; line-height:1.4;
+}
+.pill svg { opacity:.65; }
+
+/* ── LINK BUTTON ── */
+.btn-link {
+  background:none; border:none; cursor:pointer;
+  padding:4px; border-radius:4px;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .14s; color:var(--link-unset);
+}
+.btn-link.has-link  { color:var(--link-set); }
+.btn-link.has-link:hover { background:var(--navy-xlt); color:var(--navy-dark); }
+.btn-link:not(.has-link):hover { background:var(--navy-xlt); color:var(--navy); }
+
+/* Edit mode: link input overlay */
+.link-input-wrap {
+  display:none;
+  position:absolute; z-index:200;
+  background:var(--white);
+  border:2px solid var(--navy);
+  border-radius:6px;
+  box-shadow:0 8px 28px rgba(0,64,128,.2);
+  padding:10px 12px;
+  width:320px;
+  flex-direction:column; gap:8px;
+}
+.link-input-wrap.show { display:flex; }
+.link-input-wrap label {
+  font-family:'Oswald',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:0.8px; text-transform:uppercase; color:var(--navy);
+}
+.link-input-wrap input {
+  width:100%; padding:6px 9px; font-size:12.5px;
+  border:1.5px solid var(--border); border-radius:4px;
+  font-family:'Source Sans 3',sans-serif; color:var(--text);
+  outline:none; transition:border .13s;
+}
+.link-input-wrap input:focus { border-color:var(--navy-mid); }
+.link-input-wrap .link-btns {
+  display:flex; gap:7px; justify-content:flex-end;
+}
+.link-input-wrap .link-btns button {
+  font-family:'Oswald',sans-serif; font-size:11px; font-weight:500;
+  letter-spacing:0.5px; text-transform:uppercase;
+  padding:5px 13px; border-radius:3px; cursor:pointer; border:none;
+  transition:all .13s;
+}
+.lb-save { background:var(--navy); color:var(--white); }
+.lb-save:hover { background:var(--navy-mid); }
+.lb-clear { background:var(--ny-bg); color:var(--ny-tx); border:1px solid var(--ny-br)!important; }
+.lb-clear:hover { background:var(--ny-br); color:var(--white); }
+.lb-cancel { background:var(--bg); color:var(--text-lt); border:1px solid var(--border)!important; }
+.lb-cancel:hover { background:var(--border); }
+
+/* ── DELETE BUTTON ── */
+.btn-del {
+  background:none; border:none; cursor:pointer;
+  color:#b0bec5; padding:4px; border-radius:4px;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .13s;
+}
+.btn-del:hover { color:var(--ny-tx); background:var(--ny-bg); }
+
+/* ── ADD ROW ── */
+.add-row-btn {
+  width:100%; padding:9px;
+  background:var(--gold-pale); border:1.5px dashed var(--gold); border-top:none;
+  font-family:'Oswald',sans-serif; font-size:12px; font-weight:600;
+  letter-spacing:0.5px; color:var(--gold); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:7px;
+  transition:all .13s; border-radius:0 0 5px 5px;
+}
+.add-row-btn:hover { background:#fff4cc; color:var(--navy); }
+
+/* ══ FOOTER ══════════════════════════════════ */
+.footer {
+  background:var(--navy-dark); border-top:3px solid var(--gold);
+  padding:14px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:10px;
+}
+.footer p { color:rgba(255,255,255,.45); font-size:11.5px; }
+.footer strong { color:var(--gold-lt); }
+
+/* ══ TOAST ═══════════════════════════════════ */
+.toast {
+  position:fixed; bottom:26px; right:26px;
+  background:var(--navy-dark); color:var(--white);
+  font-size:12.5px; font-family:'Oswald',sans-serif; letter-spacing:0.2px;
+  padding:10px 18px; border-radius:5px; border-left:4px solid var(--gold);
+  box-shadow:0 6px 24px rgba(0,0,0,.22);
+  display:none; z-index:9999; animation:slideIn .22s ease;
+}
+@keyframes slideIn {
+  from { transform:translateY(16px); opacity:0; }
+  to   { transform:translateY(0);    opacity:1; }
+}
+
+/* ── LINK ANCHOR ── */
+.link-anchor {
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Hidden real <a> used only for PDF output */
+.pdf-link {
+  display:none;
+  font-family:'Oswald',sans-serif; font-size:10px; font-weight:600;
+  color:var(--link-set); letter-spacing:0.4px;
+  text-decoration:underline; text-underline-offset:2px;
+  word-break:break-all; line-height:1.3;
+}
+
+/* ══ PRINT / PDF ════════════════════════════════════════════
+   Force all backgrounds and colors to print correctly.
+   Browsers suppress backgrounds by default unless the user
+   enables "Background graphics" — we use -webkit-print-color-adjust
+   and color-adjust to override this, plus explicit color rules
+   so text is never faint or invisible in the PDF.
+   ══════════════════════════════════════════════════════════ */
+@media print {
+  /* Tell the browser to keep all colors exactly as on screen */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Hide interactive chrome */
+  .toolbar, .btn, .btn-del, .btn-link, .add-row-btn,
+  .footer, .c-act, .link-input-wrap { display:none!important; }
+  .tbl-wrap { box-shadow:none!important; outline:none!important; }
+
+  /* ── Header: force navy background + crisp white/gold text ── */
+  .header {
+    background: #002d5a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .header-inner {
+    border-bottom-color: #C8973A !important;
+  }
+  .header-text h1 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+  .header-text .sub {
+    color: rgba(255,255,255,0.75) !important;
+    -webkit-text-fill-color: rgba(255,255,255,0.75) !important;
+  }
+  .header-text .sub strong {
+    color: #ffc107 !important;
+    -webkit-text-fill-color: #ffc107 !important;
+  }
+  .badge {
+    color: #ffc107 !important;
+    -webkit-text-fill-color: #ffc107 !important;
+    border-color: #C8973A !important;
+    background: rgba(200,151,58,0.25) !important;
+  }
+  .date-lbl, .date-lbl span {
+    color: rgba(255,255,255,0.6) !important;
+    -webkit-text-fill-color: rgba(255,255,255,0.6) !important;
+  }
+  .logo-wrap {
+    border-color: rgba(200,151,58,0.6) !important;
+    background: #ffffff !important;
+  }
+
+  /* ── Table headers: force navy background + gold text ── */
+  thead tr {
+    background: #002d5a !important;
+  }
+  thead th {
+    color: #ffc107 !important;
+    -webkit-text-fill-color: #ffc107 !important;
+    background: #002d5a !important;
+  }
+
+  /* ── Section labels ── */
+  .section-label .tag {
+    background: #004080 !important;
+    color: #ffc107 !important;
+    -webkit-text-fill-color: #ffc107 !important;
+  }
+  .section-label h2 {
+    color: #004080 !important;
+  }
+
+  /* ── Person pills ── */
+  .pill {
+    background: #004080 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border-color: #1a6bb5 !important;
+  }
+
+  /* ── Status badges ── */
+  .s-done   { background: #e3f7ed !important; color: #0b6338 !important; -webkit-text-fill-color: #0b6338 !important; }
+  .s-pend   { background: #fff3dc !important; color: #7a4500 !important; -webkit-text-fill-color: #7a4500 !important; }
+  .s-notyet { background: #fce8e8 !important; color: #7d1515 !important; -webkit-text-fill-color: #7d1515 !important; }
+
+  /* ── Link column: show real <a> in PDF ── */
+  .c-link { width:90px!important; text-align:left!important; padding:6px 8px!important; }
+  .pdf-link          { display:inline!important; color: #0056b3 !important; -webkit-text-fill-color: #0056b3 !important; }
+  .pdf-link[href=""] { display:none!important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ═══════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="icf-sl.jpg" alt="ICF-SL Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="logo-fallback" style="display:none">ICF<br>SL</span>
+    </div>
+    <div class="header-text">
+      <h1>NMCP – SNT &amp; GC Prioritization Task Tracker</h1>
+      <p class="sub">
+        <strong>National Malaria Control Programme</strong> · Sierra Leone ·
+        GC7 Immediate &amp; NSP / GC8 Pipeline Actions
+      </p>
+    </div>
+    <div class="header-meta">
+      <div class="badge">GC7 · NSP · GC8</div>
+      <span class="date-lbl">Last updated: <span id="lastUpdated"></span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOOLBAR ══════════════════════════════════════════════ -->
+<div class="toolbar">
+  <span class="toolbar-label">
+    <svg class="ic ic-md"><use href="#ic-controls"/></svg> Controls
+  </span>
+
+  <button class="btn btn-gold" onclick="downloadHTML()">
+    <svg class="ic"><use href="#ic-download"/></svg> Download Updated HTML
+  </button>
+
+  <button class="btn btn-navy" id="editBtn" onclick="toggleEdit()">
+    <svg class="ic" id="editIco"><use href="#ic-edit"/></svg>
+    <span id="editLbl">Enable Editing</span>
+  </button>
+
+  <div class="tsep"></div>
+
+  <span class="edit-ind" id="editInd">
+    <span class="dot"></span>
+    <svg class="ic ic-sm"><use href="#ic-eye"/></svg>
+    <span id="editIndLbl">View Mode</span>
+  </span>
+
+  <div class="tsep"></div>
+
+  <button class="btn btn-outline" onclick="window.print()">
+    <svg class="ic"><use href="#ic-print"/></svg> Print
+  </button>
+  <button class="btn btn-outline" onclick="exportCSV()">
+    <svg class="ic"><use href="#ic-csv"/></svg> Export CSV
+  </button>
+
+  <div class="stats-row">
+    <span class="stat-chip chip-done"   id="sDone"><svg class="ic ic-sm"><use href="#ic-check"/></svg>  Done: 0</span>
+    <span class="stat-chip chip-pend"   id="sPend"><svg class="ic ic-sm"><use href="#ic-clock"/></svg>  Pending: 0</span>
+    <span class="stat-chip chip-notyet" id="sNot" ><svg class="ic ic-sm"><use href="#ic-circle"/></svg> Not Yet: 0</span>
+  </div>
+</div>
+
+<!-- ══ MAIN ══════════════════════════════════════════════════ -->
+<div class="container">
+
+<!-- ─────────────────────────────────────────────────────────
+     SECTION 1 – Hard Data
+     ───────────────────────────────────────────────────────── -->
+<div class="section-label">
+  <span class="tag">GC7 Immediate</span>
+  <h2>WAU School-Based Distribution – Hard Data Collection</h2>
+</div>
+<div class="tbl-wrap">
+<table id="t1">
+  <thead><tr>
+    <th style="width:36px"><div class="th-i">#</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td class="c-no">1</td>
+      <td class="c-task" contenteditable="false" data-ph="Click to edit…">Obtain shapefile of WAU zones</td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Request from Urban Planning / GIS department; validate against NMCP boundaries</td>
+      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+    </tr>
+    <tr>
+      <td class="c-no">2</td>
+      <td class="c-task" contenteditable="false" data-ph="Click to edit…">Obtain malaria prevalence data in WAU slums (2021, College of Medicine)</td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Liaise with College of Medicine &amp; Allied Health Sciences; request dataset or published figures</td>
+      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+    </tr>
+    <tr>
+      <td class="c-no">3</td>
+      <td class="c-task" contenteditable="false" data-ph="Click to edit…">Extract routine data (2020–2025): % all-cause outpatients with malaria per HF per zone per year</td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Pull from DHIS2/NMDR; calculate OPD malaria proportion by zone; clean and validate</td>
+      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+    </tr>
+    <tr>
+      <td class="c-no">4</td>
+      <td class="c-task" contenteditable="false" data-ph="Click to edit…">Collect GPS coordinates of all health facilities in WAU</td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Cross-reference Master Facility List (MFL) with DHIS2 org unit coordinates; field-verify gaps</td>
+      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+    </tr>
+    <tr>
+      <td class="c-no">5</td>
+      <td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile school information per WAU school (type, age-groups/grades, GPS, catchment area, student count)</td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Request from Ministry of Education; supplement with field GPS; map catchment areas in GIS</td>
+      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+    </tr>
+  </tbody>
+</table>
+<button class="add-row-btn" onclick="addRow('t1')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────
+     SECTION 2 – Soft Data
+     ───────────────────────────────────────────────────────── -->
+<div class="section-label">
+  <span class="tag">GC7 Immediate</span>
+  <h2>WAU SBD – Soft Data Collection (Socioeconomic &amp; Environmental)</h2>
+</div>
+<div class="tbl-wrap">
+<table id="t2">
+  <thead><tr>
+    <th style="width:36px"><div class="th-i">#</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Collect socio-economic status data per WAU zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Review census/survey data; consult Statistics Sierra Leone and urban planning</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Assess waste management and household materials per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Qualitative assessment + satellite imagery; engage NaCSA / waste management authorities</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Document level of education per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Ministry of Education data; DHS/Census secondary sources</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Map presence and extent of slums per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">UN-Habitat / OpenStreetMap data; satellite imagery review; community consultation</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">5</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Identify stagnant bodies of water per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Remote sensing (NDWI / Sentinel-2); field verification; entomological records</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">6</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Map areas with high population movement from rural areas</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Mobile data / flow datasets; migration statistics; key informant interviews</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">7</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Document other WAU-specific characteristics affecting malaria risk</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Qualitative FGDs / KIIs with health, education and urban planning departments</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+  </tbody>
+</table>
+<button class="add-row-btn" onclick="addRow('t2')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────
+     SECTION 3 – Synthesis & Costing
+     ───────────────────────────────────────────────────────── -->
+<div class="section-label">
+  <span class="tag">GC7 Immediate</span>
+  <h2>WAU SBD – Synthesis, Stakeholder Meeting &amp; Costing</h2>
+</div>
+<div class="tbl-wrap">
+<table id="t3">
+  <thead><tr>
+    <th style="width:36px"><div class="th-i">#</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Stratify WAU zones by malaria risk using combined hard &amp; soft data</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Composite risk scoring; GIS overlay analysis; present results to NMCP team</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Depends on completion of data collection tasks</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Prioritize schools covering students in highest-risk zones</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Link school catchment areas to zone risk scores; rank schools by risk burden</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Convene multi-sectoral stakeholder meeting for SBD prioritization validation</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Invite Education, Urban Planning, Health (incl. NTDs) depts; present stratification; agree on priorities</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Calculate per-school SBD cost (nets + ops) at different prioritization levels</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>CHAI</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Brighton Gambinga</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Unit cost × student count; model scenarios (top 25%, 50%, 100% of schools); present cost envelope</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">CHAI responsible for prevention costing</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+  </tbody>
+</table>
+<button class="add-row-btn" onclick="addRow('t3')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────
+     SECTION 4 – ITN Campaign 2030
+     ───────────────────────────────────────────────────────── -->
+<div class="section-label">
+  <span class="tag">NSP · GC8</span>
+  <h2>ITN Mass Campaign 2030 – Prioritization Criteria</h2>
+</div>
+<div class="tbl-wrap">
+<table id="t4">
+  <thead><tr>
+    <th style="width:36px"><div class="th-i">#</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Define and review urban area criteria for ITN campaign targeting</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Agree on urban classification threshold; overlay with population data and malaria burden</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Update malaria incidence data with 2025 figures for all districts</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Pull 2025 data from DHIS2/NMDR; calculate crude and adjusted incidence by district; validate</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile malaria mortality data up to 2025</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Extract inpatient malaria deaths from DHIS2; review CRVS/verbal autopsy data; trend analysis</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Finalize best source for access-to-care indicator (trigger stakeholder discussion)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Review options: DHS, OpenStreetMap friction surface, WorldPop AccessMod; stakeholder discussion</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Needs formal consensus decision</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">5</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile entomological data: insecticide resistance, biting &amp; resting behaviour</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP Entomology</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Collate existing resistance testing reports; map data by district; identify gaps for new collections</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">6</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Identify and document additional prioritization criteria for ITN campaign</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Internal NMCP review; communicate agreed additional criteria to team by following week</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Due: communicated next week per meeting</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+  </tbody>
+</table>
+<button class="add-row-btn" onclick="addRow('t4')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────
+     SECTION 5 – Spatial Emanators
+     ───────────────────────────────────────────────────────── -->
+<div class="section-label">
+  <span class="tag">NSP · GC8</span>
+  <h2>Spatial Emanators Pilot</h2>
+</div>
+<div class="tbl-wrap">
+<table id="t5">
+  <thead><tr>
+    <th style="width:36px"><div class="th-i">#</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Define purpose and scope of spatial emanator pilot (island elimination vs. low net-use areas)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Internal discussion to pin down objectives; document decision rationale and pilot design concept</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Dual-purpose: island elimination (A) and/or low net-usage areas (B)</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Explore NTDs collaboration for spatial emanator cross-cutting use</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NTD Dept</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Joint meeting with NTDs team; identify shared target areas and co-implementation potential</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Cross-cutting with NTDs plan</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+  </tbody>
+</table>
+<button class="add-row-btn" onclick="addRow('t5')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────
+     SECTION 6 – Costing & Impact
+     ───────────────────────────────────────────────────────── -->
+<div class="section-label">
+  <span class="tag">NSP · GC8</span>
+  <h2>Overall Prioritization – Costing, Impact Modelling &amp; Scenarios</h2>
+</div>
+<div class="tbl-wrap">
+<table id="t6">
+  <thead><tr>
+    <th style="width:36px"><div class="th-i">#</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Cost prioritized prevention intervention scenarios</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>CHAI</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Brighton Gambinga</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Prevention interventions costing tool; model multiple scenarios; present cost envelopes to NMCP</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">CHAI scope: prevention only</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Model projected impact outcomes for prioritized scenarios</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Imperial College</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>R. Sheppard</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>P. Gething</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Mathematical modelling (OpenMalaria/similar); scenarios linked to NMCP's prioritization framework</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Support from Imperial College &amp; The Kids Research Institute</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">NMCP to identify final combination of prioritized scenarios (costs + impact)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Decision workshop; compare costed scenarios with projected impact; finalize implementation plan</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Depends on outputs from CHAI &amp; Imperial College</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+  </tbody>
+</table>
+<button class="add-row-btn" onclick="addRow('t6')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© <strong>Informatics Consultancy Firm Sierra Leone (ICF-SL)</strong> · National Malaria Control Programme · GC7 / NSP / GC8 Planning</p>
+  <p>Enable Editing → Update cells → Paste links → Download HTML → Re-upload to preserve all changes</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══ SCRIPT ════════════════════════════════════════════════ -->
+<script>
+/* ── Date ─────────────────────────────────────────────────── */
+document.getElementById('lastUpdated').textContent =
+  new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+
+/* ── Edit mode ────────────────────────────────────────────── */
+let editMode = false;
+
+function toggleEdit() {
+  editMode = !editMode;
+  const ico    = document.querySelector('#editIco use');
+  const lbl    = document.getElementById('editLbl');
+  const btn    = document.getElementById('editBtn');
+  const ind    = document.getElementById('editInd');
+  const indLbl = document.getElementById('editIndLbl');
+
+  /* Toggle contenteditable on ALL editable cells */
+  document.querySelectorAll('td[contenteditable]').forEach(c => {
+    c.contentEditable = editMode ? 'true' : 'false';
+  });
+  document.querySelectorAll('.btn-del').forEach(b => b.style.display = editMode ? 'flex' : 'none');
+  document.querySelectorAll('.add-row-btn').forEach(b => b.style.display = editMode ? 'flex' : 'none');
+
+  if (editMode) {
+    ico.setAttribute('href','#ic-lock');
+    lbl.textContent = 'Lock & Save';
+    btn.className = 'btn btn-danger';
+    ind.classList.add('active');
+    indLbl.textContent = 'Edit Mode — Click any cell to type';
+    showToast('Edit mode on. Click any cell to update content or comments.');
+  } else {
+    // Close any open link panels
+    document.querySelectorAll('.link-input-wrap.show').forEach(p => p.classList.remove('show'));
+    ico.setAttribute('href','#ic-edit');
+    lbl.textContent = 'Enable Editing';
+    btn.className = 'btn btn-navy';
+    ind.classList.remove('active');
+    indLbl.textContent = 'View Mode';
+    document.getElementById('lastUpdated').textContent =
+      new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+    showToast('Changes saved. Download HTML to keep your updates.');
+  }
+  updateStats();
+}
+
+/* Init: hide row controls */
+document.querySelectorAll('.btn-del').forEach(b => b.style.display = 'none');
+document.querySelectorAll('.add-row-btn').forEach(b => b.style.display = 'none');
+
+/* ── Status sync ──────────────────────────────────────────── */
+function syncStatus(sel) {
+  sel.className = 'status-sel';
+  sel.classList.add({'done':'s-done','pending':'s-pend','not-yet':'s-notyet'}[sel.value]);
+  updateStats();
+}
+
+/* ── Stats ────────────────────────────────────────────────── */
+function updateStats() {
+  let d=0,p=0,n=0;
+  document.querySelectorAll('.status-sel').forEach(s => {
+    if(s.value==='done') d++; else if(s.value==='pending') p++; else n++;
+  });
+  document.getElementById('sDone').innerHTML =
+    `<svg class="ic ic-sm"><use href="#ic-check"/></svg> Done: ${d}`;
+  document.getElementById('sPend').innerHTML =
+    `<svg class="ic ic-sm"><use href="#ic-clock"/></svg> Pending: ${p}`;
+  document.getElementById('sNot').innerHTML  =
+    `<svg class="ic ic-sm"><use href="#ic-circle"/></svg> Not Yet: ${n}`;
+}
+updateStats();
+
+/* ── Link management ──────────────────────────────────────── */
+/* Each link-anchor holds: <button.btn-link> and <div.link-input-wrap>
+   Button stores URL in data-url attribute.
+   In view mode: click opens URL (if set).
+   In edit mode: click opens inline paste panel.                       */
+
+function handleLink(btn) {
+  const url = btn.dataset.url || '';
+  if (!editMode) {
+    /* View mode — open link if set */
+    if (url) { window.open(url, '_blank'); }
+    else { showToast('No link set. Enable Editing to add a link.'); }
+    return;
+  }
+  /* Edit mode — toggle link panel */
+  const panel = btn.nextElementSibling; /* .link-input-wrap */
+  const already = panel.classList.contains('show');
+
+  /* Close all other panels */
+  document.querySelectorAll('.link-input-wrap.show').forEach(p => p.classList.remove('show'));
+
+  if (already) return;
+
+  /* Build panel content */
+  panel.innerHTML = `
+    <label>Deliverable Link</label>
+    <input type="url" placeholder="Paste URL here…" value="${url}">
+    <div class="link-btns">
+      <button class="lb-cancel" onclick="closePanel(this)">Cancel</button>
+      <button class="lb-clear"  onclick="clearLink(this)">Clear</button>
+      <button class="lb-save"   onclick="saveLink(this)">Save</button>
+    </div>`;
+  panel.classList.add('show');
+
+  /* Auto-focus input */
+  setTimeout(() => panel.querySelector('input').focus(), 50);
+}
+
+function saveLink(saveBtn) {
+  const panel = saveBtn.closest('.link-input-wrap');
+  const input = panel.querySelector('input');
+  const url   = input.value.trim();
+  const btn   = panel.previousElementSibling; /* .btn-link */
+  btn.dataset.url = url;
+  setLinkIcon(btn, !!url);
+  panel.classList.remove('show');
+  showToast(url ? 'Link saved.' : 'Link cleared.');
+}
+function clearLink(clearBtn) {
+  const panel = clearBtn.closest('.link-input-wrap');
+  const btn   = panel.previousElementSibling;
+  btn.dataset.url = '';
+  setLinkIcon(btn, false);
+  panel.classList.remove('show');
+  showToast('Link cleared.');
+}
+function closePanel(cancelBtn) {
+  cancelBtn.closest('.link-input-wrap').classList.remove('show');
+}
+
+function setLinkIcon(btn, hasLink) {
+  btn.innerHTML = hasLink
+    ? `<svg style="width:16px;height:16px"><use href="#ic-link"/></svg>`
+    : `<svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg>`;
+  btn.classList.toggle('has-link', hasLink);
+  btn.title = hasLink ? 'Open deliverable link' : 'No link — click to add';
+
+  /* Sync hidden <a> so PDF export has a real clickable hyperlink */
+  const anchor = btn.closest('.link-anchor');
+  if (anchor) {
+    let pdfA = anchor.querySelector('.pdf-link');
+    if (!pdfA) {
+      pdfA = document.createElement('a');
+      pdfA.className = 'pdf-link';
+      pdfA.target = '_blank';
+      anchor.appendChild(pdfA);
+    }
+    const url = btn.dataset.url || '';
+    pdfA.href = url;
+    pdfA.textContent = url ? 'Open link' : '';
+  }
+}
+
+/* Close link panels when clicking outside */
+document.addEventListener('click', e => {
+  if (!e.target.closest('.link-anchor')) {
+    document.querySelectorAll('.link-input-wrap.show').forEach(p => p.classList.remove('show'));
+  }
+});
+
+/* ── Add row ──────────────────────────────────────────────── */
+function addRow(tid) {
+  const tbody = document.getElementById(tid).querySelector('tbody');
+  const n     = tbody.rows.length + 1;
+  const ce    = editMode ? 'true' : 'false';
+  const tr    = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="c-no">${n}</td>
+    <td class="c-task" contenteditable="${ce}" data-ph="Click to edit…">New task — click to edit</td>
+    <td class="c-who"  contenteditable="${ce}" data-ph="Responsible…">
+      <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span>
+    </td>
+    <td class="c-app"  contenteditable="${ce}" data-ph="Describe approach…">—</td>
+    <td class="c-st">
+      <select class="status-sel s-notyet" onchange="syncStatus(this)">
+        <option value="not-yet" selected>Not Yet</option>
+        <option value="pending">Pending</option>
+        <option value="done">Done</option>
+      </select>
+    </td>
+    <td class="c-note" contenteditable="${ce}" data-ph="Add comment…">—</td>
+    <td class="c-link">
+      <div class="link-anchor">
+        <button class="btn-link" onclick="handleLink(this)" title="No link — click to add">
+          <svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg>
+        </button>
+        <div class="link-input-wrap"></div>
+      </div>
+    </td>
+    <td class="c-act">
+      <button class="btn-del" onclick="delRow(this)" title="Delete" style="display:flex">
+        <svg style="width:14px;height:14px"><use href="#ic-x"/></svg>
+      </button>
+    </td>`;
+  tbody.appendChild(tr);
+  renumber(tid);
+  updateStats();
+}
+
+/* ── Delete row ───────────────────────────────────────────── */
+function delRow(btn) {
+  if(!confirm('Delete this row?')) return;
+  const tbl = btn.closest('table');
+  btn.closest('tr').remove();
+  renumber(tbl.id);
+  updateStats();
+}
+function renumber(tid) {
+  document.getElementById(tid).querySelectorAll('tbody tr').forEach((r,i) => {
+    r.querySelector('.c-no').textContent = i+1;
+  });
+}
+
+/* ── Download HTML ────────────────────────────────────────── */
+function downloadHTML() {
+  /* Bake select states */
+  document.querySelectorAll('.status-sel').forEach(s => {
+    [...s.options].forEach(o => { o.selected = (o.value === s.value); });
+  });
+  /* Bake link data-url into button element and pdf-link href */
+  document.querySelectorAll('.btn-link').forEach(b => {
+    b.setAttribute('data-url', b.dataset.url || '');
+    const anchor = b.closest('.link-anchor');
+    if (anchor) {
+      const pdfA = anchor.querySelector('.pdf-link');
+      if (pdfA) {
+        pdfA.href = b.dataset.url || '';
+        pdfA.textContent = b.dataset.url ? 'Open link' : '';
+      }
+    }
+  });
+  document.getElementById('lastUpdated').textContent =
+    new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+
+  const was = editMode;
+  if(was) document.querySelectorAll('td[contenteditable]').forEach(c => c.contentEditable='false');
+
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+  if(was) document.querySelectorAll('td[contenteditable]').forEach(c => c.contentEditable='true');
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+  a.download = 'nmcp_task_tracker_' + new Date().toISOString().slice(0,10) + '.html';
+  a.click();
+  showToast('HTML downloaded with all changes preserved.');
+}
+
+/* ── Export CSV ───────────────────────────────────────────── */
+function exportCSV() {
+  const secs = [
+    'WAU SBD Hard Data','WAU SBD Soft Data','WAU SBD Synthesis & Costing',
+    'ITN Campaign 2030','Spatial Emanators Pilot','Overall Costing & Impact'
+  ];
+  const e = t => '"' + t.replace(/"/g,'""') + '"';
+  let csv = 'Section,#,Task,Responsible,Approach,Status,Comments,Link\n';
+  for(let i=1;i<=6;i++){
+    document.getElementById('t'+i).querySelectorAll('tbody tr').forEach(row => {
+      const c = row.querySelectorAll('td');
+      const s = c[4].querySelector('select');
+      const l = c[6].querySelector('.btn-link');
+      csv += [
+        e(secs[i-1]), e(c[0].textContent.trim()),
+        e(c[1].textContent.trim()), e(c[2].textContent.trim()),
+        e(c[3].textContent.trim()),
+        e(s.options[s.selectedIndex].text.trim()),
+        e(c[5].textContent.trim()),
+        e(l ? (l.dataset.url||'') : '')
+      ].join(',') + '\n';
+    });
+  }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = 'nmcp_tasks_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  showToast('CSV exported successfully.');
+}
+
+/* Restore link icons + pdf-link anchors on page load (after download & re-upload) */
+document.querySelectorAll('.btn-link').forEach(btn => {
+  const url = btn.dataset.url || btn.getAttribute('data-url') || '';
+  btn.dataset.url = url;
+  if (url) setLinkIcon(btn, true);
+  /* Ensure pdf-link <a> exists */
+  const anchor = btn.closest('.link-anchor');
+  if (anchor && !anchor.querySelector('.pdf-link')) {
+    const pdfA = document.createElement('a');
+    pdfA.className = 'pdf-link';
+    pdfA.target = '_blank';
+    pdfA.href = url;
+    pdfA.textContent = url ? 'Open link' : '';
+    anchor.appendChild(pdfA);
+  } else if (anchor) {
+    const pdfA = anchor.querySelector('.pdf-link');
+    pdfA.href = url;
+    pdfA.textContent = url ? 'Open link' : '';
+  }
+});
+
+/* ── Toast ────────────────────────────────────────────────── */
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg; el.style.display = 'block';
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.style.display='none', 3000);
+}
+</script>
+</body>
+</html>
