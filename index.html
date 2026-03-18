@@ -1,82 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NMCP – SNT &amp; Prioritization Task Tracker | ICF-SL</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&amp;family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 
 <!-- ══════════════ INLINE SVG SPRITE ══════════════ -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+</head><body data-new-gr-c-s-check-loaded="14.1134.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="14.1134.0"><svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="ic-download" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 3v10M6 9l4 4 4-4"/><path d="M3 15h14"/>
+    <path d="M10 3v10M6 9l4 4 4-4"></path><path d="M3 15h14"></path>
   </symbol>
   <symbol id="ic-edit" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14.5 3.5a2.121 2.121 0 013 3L6 18H3v-3L14.5 3.5z"/>
+    <path d="M14.5 3.5a2.121 2.121 0 013 3L6 18H3v-3L14.5 3.5z"></path>
   </symbol>
   <symbol id="ic-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6a3 3 0 016 0v3"/>
+    <rect x="4" y="9" width="12" height="9" rx="2"></rect><path d="M7 9V6a3 3 0 016 0v3"></path>
   </symbol>
   <symbol id="ic-print" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 7V3h10v4"/><rect x="3" y="7" width="14" height="8" rx="1.5"/><path d="M5 11h10M5 15h4"/>
+    <path d="M5 7V3h10v4"></path><rect x="3" y="7" width="14" height="8" rx="1.5"></rect><path d="M5 11h10M5 15h4"></path>
   </symbol>
   <symbol id="ic-csv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3" y="3" width="14" height="14" rx="1.5"/><path d="M3 8h14M3 13h14M8 3v14"/>
+    <rect x="3" y="3" width="14" height="14" rx="1.5"></rect><path d="M3 8h14M3 13h14M8 3v14"></path>
   </symbol>
   <symbol id="ic-task" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="4" y="3" width="12" height="15" rx="1.5"/><path d="M8 3v2h4V3M7 10h6M7 13h4"/>
+    <rect x="4" y="3" width="12" height="15" rx="1.5"></rect><path d="M8 3v2h4V3M7 10h6M7 13h4"></path>
   </symbol>
   <symbol id="ic-person" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="10" cy="6" r="3"/><path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7"/>
+    <circle cx="10" cy="6" r="3"></circle><path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7"></path>
   </symbol>
   <symbol id="ic-search" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="8.5" cy="8.5" r="5"/><path d="M15 15l-3.5-3.5"/>
+    <circle cx="8.5" cy="8.5" r="5"></circle><path d="M15 15l-3.5-3.5"></path>
   </symbol>
   <symbol id="ic-status" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="7" y="2" width="6" height="16" rx="3"/>
-    <circle cx="10" cy="6"  r="1.3" fill="currentColor" stroke="none"/>
-    <circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"/>
-    <circle cx="10" cy="14" r="1.3" fill="currentColor" stroke="none"/>
+    <rect x="7" y="2" width="6" height="16" rx="3"></rect>
+    <circle cx="10" cy="6" r="1.3" fill="currentColor" stroke="none"></circle>
+    <circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"></circle>
+    <circle cx="10" cy="14" r="1.3" fill="currentColor" stroke="none"></circle>
   </symbol>
   <symbol id="ic-notes" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 3h10a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/>
-    <path d="M7 8h6M7 11h4"/>
+    <path d="M5 3h10a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"></path>
+    <path d="M7 8h6M7 11h4"></path>
   </symbol>
   <symbol id="ic-cog" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="10" cy="10" r="2.5"/>
-    <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42"/>
+    <circle cx="10" cy="10" r="2.5"></circle>
+    <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M4.22 15.78l1.42-1.42M14.36 5.64l1.42-1.42"></path>
   </symbol>
   <symbol id="ic-x" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-    <path d="M4 4l8 8M12 4l-8 8"/>
+    <path d="M4 4l8 8M12 4l-8 8"></path>
   </symbol>
   <symbol id="ic-plus" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-    <path d="M8 3v10M3 8h10"/>
+    <path d="M8 3v10M3 8h10"></path>
   </symbol>
   <symbol id="ic-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 8l4 4 6-7"/>
+    <path d="M3 8l4 4 6-7"></path>
   </symbol>
   <symbol id="ic-clock" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-    <circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2.5 1.5"/>
+    <circle cx="8" cy="8" r="6"></circle><path d="M8 5v3.5l2.5 1.5"></path>
   </symbol>
   <symbol id="ic-circle" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
-    <circle cx="8" cy="8" r="6"/>
+    <circle cx="8" cy="8" r="6"></circle>
   </symbol>
   <symbol id="ic-eye" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-    <path d="M2 10s3-6 8-6 8 6 8 6-3 6-8 6-8-6-8-6z"/>
-    <circle cx="10" cy="10" r="2.5"/>
+    <path d="M2 10s3-6 8-6 8 6 8 6-3 6-8 6-8-6-8-6z"></path>
+    <circle cx="10" cy="10" r="2.5"></circle>
   </symbol>
   <symbol id="ic-controls" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 6h12M4 10h8M4 14h5"/>
+    <path d="M4 6h12M4 10h8M4 14h5"></path>
   </symbol>
   <!-- chain link / deliverable link -->
   <symbol id="ic-link" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 11a4 4 0 005.66 0l2-2A4 4 0 009.99 3.34L8.5 4.83"/>
-    <path d="M12 9a4 4 0 00-5.66 0l-2 2A4 4 0 0010.01 16.66L11.5 15.17"/>
+    <path d="M8 11a4 4 0 005.66 0l2-2A4 4 0 009.99 3.34L8.5 4.83"></path>
+    <path d="M12 9a4 4 0 00-5.66 0l-2 2A4 4 0 0010.01 16.66L11.5 15.17"></path>
   </symbol>
   <!-- link-off / no link set -->
   <symbol id="ic-link-off" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 11a4 4 0 005.66 0l2-2A4 4 0 009.99 3.34L8.5 4.83M12 9a4 4 0 00-5.66 0l-2 2A4 4 0 0010.01 16.66L11.5 15.17"/>
-    <line x1="3" y1="3" x2="17" y2="17"/>
+    <path d="M8 11a4 4 0 005.66 0l2-2A4 4 0 009.99 3.34L8.5 4.83M12 9a4 4 0 00-5.66 0l-2 2A4 4 0 0010.01 16.66L11.5 15.17"></path>
+    <line x1="3" y1="3" x2="17" y2="17"></line>
   </symbol>
 </svg>
 
@@ -571,16 +570,15 @@ td[contenteditable="true"]:empty::before {
   .pdf-link[href=""] { display:none!important; }
 }
 </style>
-</head>
-<body>
+
+
 
 <!-- ══ HEADER ═══════════════════════════════════════════════ -->
 <div class="header">
   <div class="header-inner">
     <div class="logo-wrap">
-      <img src="icf-sl.jpg" alt="ICF-SL Logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <span class="logo-fallback" style="display:none">ICF<br>SL</span>
+      <img src="icf-sl.jpg" alt="ICF-SL Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="display: none;">
+      <span class="logo-fallback" style="display: flex;">ICF<br>SL</span>
     </div>
     <div class="header-text">
       <h1>NMCP – SNT &amp; GC Prioritization Task Tracker</h1>
@@ -591,7 +589,7 @@ td[contenteditable="true"]:empty::before {
     </div>
     <div class="header-meta">
       <div class="badge">GC7 · NSP · GC8</div>
-      <span class="date-lbl">Last updated: <span id="lastUpdated"></span></span>
+      <span class="date-lbl">Last updated: <span id="lastUpdated">18 Mar 2026</span></span>
     </div>
   </div>
 </div>
@@ -599,15 +597,15 @@ td[contenteditable="true"]:empty::before {
 <!-- ══ TOOLBAR ══════════════════════════════════════════════ -->
 <div class="toolbar">
   <span class="toolbar-label">
-    <svg class="ic ic-md"><use href="#ic-controls"/></svg> Controls
+    <svg class="ic ic-md"><use href="#ic-controls"></use></svg> Controls
   </span>
 
-  <button class="btn btn-gold" onclick="downloadHTML()">
-    <svg class="ic"><use href="#ic-download"/></svg> Download Updated HTML
+  <button class="btn btn-gold" onclick="downloadHTML()" fdprocessedid="m529h">
+    <svg class="ic"><use href="#ic-download"></use></svg> Download Updated HTML
   </button>
 
-  <button class="btn btn-navy" id="editBtn" onclick="toggleEdit()">
-    <svg class="ic" id="editIco"><use href="#ic-edit"/></svg>
+  <button class="btn btn-navy" id="editBtn" onclick="toggleEdit()" fdprocessedid="hxyexi">
+    <svg class="ic" id="editIco"><use href="#ic-edit"></use></svg>
     <span id="editLbl">Enable Editing</span>
   </button>
 
@@ -615,23 +613,23 @@ td[contenteditable="true"]:empty::before {
 
   <span class="edit-ind" id="editInd">
     <span class="dot"></span>
-    <svg class="ic ic-sm"><use href="#ic-eye"/></svg>
+    <svg class="ic ic-sm"><use href="#ic-eye"></use></svg>
     <span id="editIndLbl">View Mode</span>
   </span>
 
   <div class="tsep"></div>
 
-  <button class="btn btn-outline" onclick="window.print()">
-    <svg class="ic"><use href="#ic-print"/></svg> Print
+  <button class="btn btn-outline" onclick="window.print()" fdprocessedid="xvmthd">
+    <svg class="ic"><use href="#ic-print"></use></svg> Print
   </button>
-  <button class="btn btn-outline" onclick="exportCSV()">
-    <svg class="ic"><use href="#ic-csv"/></svg> Export CSV
+  <button class="btn btn-outline" onclick="exportCSV()" fdprocessedid="7y8jqa">
+    <svg class="ic"><use href="#ic-csv"></use></svg> Export CSV
   </button>
 
   <div class="stats-row">
-    <span class="stat-chip chip-done"   id="sDone"><svg class="ic ic-sm"><use href="#ic-check"/></svg>  Done: 0</span>
-    <span class="stat-chip chip-pend"   id="sPend"><svg class="ic ic-sm"><use href="#ic-clock"/></svg>  Pending: 0</span>
-    <span class="stat-chip chip-notyet" id="sNot" ><svg class="ic ic-sm"><use href="#ic-circle"/></svg> Not Yet: 0</span>
+    <span class="stat-chip chip-done" id="sDone"><svg class="ic ic-sm"><use href="#ic-check"></use></svg> Done: 4</span>
+    <span class="stat-chip chip-pend" id="sPend"><svg class="ic ic-sm"><use href="#ic-clock"></use></svg> Pending: 0</span>
+    <span class="stat-chip chip-notyet" id="sNot"><svg class="ic ic-sm"><use href="#ic-circle"></use></svg> Not Yet: 24</span>
   </div>
 </div>
 
@@ -649,68 +647,89 @@ td[contenteditable="true"]:empty::before {
 <table id="t1">
   <thead><tr>
     <th style="width:36px"><div class="th-i">#</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
-    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
-    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"></use></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"></use></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"></use></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"></use></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"></use></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"></use></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"></use></svg></div></th>
   </tr></thead>
   <tbody>
     <tr>
       <td class="c-no">1</td>
       <td class="c-task" contenteditable="false" data-ph="Click to edit…">Obtain shapefile of WAU zones</td>
-      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
-      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Request from Urban Planning / GIS department; validate against NMCP boundaries</td>
-      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
-      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
-      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
-      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Request from Statistics Sierra Leone</td>
+      <td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="6w6p4l"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="v3h1ca"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="97u59" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td>
     </tr>
     <tr>
       <td class="c-no">2</td>
       <td class="c-task" contenteditable="false" data-ph="Click to edit…">Obtain malaria prevalence data in WAU slums (2021, College of Medicine)</td>
-      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
-      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Liaise with College of Medicine &amp; Allied Health Sciences; request dataset or published figures</td>
-      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
-      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
-      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
-      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Liaise with College of Medicine &amp; Allied Health Sciences; request dataset&nbsp;</td>
+      <td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="yf7qkl"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link has-link" onclick="handleLink(this)" title="Open deliverable link" data-url="https://docs.google.com/spreadsheets/d/1aid0zEjezqwC_9H31Q3nYwgzLfBSunNG/edit?gid=674307617#gid=674307617" fdprocessedid="f1otjq"><svg style="width:16px;height:16px"><use href="#ic-link"></use></svg></button><div class="link-input-wrap">
+    <label>Deliverable Link</label>
+    <input type="url" placeholder="Paste URL here…" value="https://docs.google.com/spreadsheets/d/1aid0zEjezqwC_9H31Q3nYwgzLfBSunNG/edit?gid=674307617#gid=674307617">
+    <div class="link-btns">
+      <button class="lb-cancel" onclick="closePanel(this)">Cancel</button>
+      <button class="lb-clear" onclick="clearLink(this)">Clear</button>
+      <button class="lb-save" onclick="saveLink(this)">Save</button>
+    </div></div><a class="pdf-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1aid0zEjezqwC_9H31Q3nYwgzLfBSunNG/edit?gid=674307617#gid=674307617">Open link</a></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="xeg4b" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td>
     </tr>
     <tr>
       <td class="c-no">3</td>
       <td class="c-task" contenteditable="false" data-ph="Click to edit…">Extract routine data (2020–2025): % all-cause outpatients with malaria per HF per zone per year</td>
-      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
-      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Pull from DHIS2/NMDR; calculate OPD malaria proportion by zone; clean and validate</td>
-      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
-      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
-      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
-      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Pull from DHIS2; calculate OPD malaria proportion by zone; clean and validate</td>
+      <td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="29gtkm"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link has-link" onclick="handleLink(this)" title="Open deliverable link" data-url="https://docs.google.com/spreadsheets/d/1M29O7ErcnAnyjscqCcDjXN-QKDXglhVIzcb6GIkAnsQ/edit?usp=sharing" fdprocessedid="9rwb4"><svg style="width:16px;height:16px"><use href="#ic-link"></use></svg></button><div class="link-input-wrap">
+    <label>Deliverable Link</label>
+    <input type="url" placeholder="Paste URL here…" value="">
+    <div class="link-btns">
+      <button class="lb-cancel" onclick="closePanel(this)">Cancel</button>
+      <button class="lb-clear" onclick="clearLink(this)">Clear</button>
+      <button class="lb-save" onclick="saveLink(this)">Save</button>
+    </div></div><a class="pdf-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1M29O7ErcnAnyjscqCcDjXN-QKDXglhVIzcb6GIkAnsQ/edit?usp=sharing">Open link</a></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="3i1ltk" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td>
     </tr>
     <tr>
       <td class="c-no">4</td>
       <td class="c-task" contenteditable="false" data-ph="Click to edit…">Collect GPS coordinates of all health facilities in WAU</td>
-      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td>
       <td class="c-app" contenteditable="false" data-ph="Describe approach…">Cross-reference Master Facility List (MFL) with DHIS2 org unit coordinates; field-verify gaps</td>
-      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
-      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
-      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
-      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+      <td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="tcspgn"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link has-link" onclick="handleLink(this)" title="Open deliverable link" data-url="https://docs.google.com/spreadsheets/d/1y5mt5TUK89pm8hrfTkr40xWQlGh6lznsdMkWbE0yfFk/edit?usp=sharing" fdprocessedid="wdps9v"><svg style="width:16px;height:16px"><use href="#ic-link"></use></svg></button><div class="link-input-wrap">
+    <label>Deliverable Link</label>
+    <input type="url" placeholder="Paste URL here…" value="">
+    <div class="link-btns">
+      <button class="lb-cancel" onclick="closePanel(this)">Cancel</button>
+      <button class="lb-clear" onclick="clearLink(this)">Clear</button>
+      <button class="lb-save" onclick="saveLink(this)">Save</button>
+    </div></div><a class="pdf-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1y5mt5TUK89pm8hrfTkr40xWQlGh6lznsdMkWbE0yfFk/edit?usp=sharing">Open link</a></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="qpq97r" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td>
     </tr>
     <tr>
       <td class="c-no">5</td>
       <td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile school information per WAU school (type, age-groups/grades, GPS, catchment area, student count)</td>
-      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td>
-      <td class="c-app" contenteditable="false" data-ph="Describe approach…">Request from Ministry of Education; supplement with field GPS; map catchment areas in GIS</td>
-      <td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
-      <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
-      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td>
-      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td>
+      <td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah Kanu</span></td>
+      <td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Request from Ministry of Education; supplement with field GPS; map catchment areas&nbsp;</td>
+      <td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="f8am5d"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td>
+      <td class="c-note" contenteditable="false" data-ph="Add comment…">NMCP will lead on this and the I will compile later.</td>
+      <td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="0fwyy"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td>
+      <td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="47q3d" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td>
     </tr>
   </tbody>
 </table>
-<button class="add-row-btn" onclick="addRow('t1')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+<button class="add-row-btn" onclick="addRow('t1')" fdprocessedid="fd794" style="display: none;"><svg style="width:15px;height:15px"><use href="#ic-plus"></use></svg> Add Row</button>
 </div>
 
 <!-- ─────────────────────────────────────────────────────────
@@ -724,25 +743,25 @@ td[contenteditable="true"]:empty::before {
 <table id="t2">
   <thead><tr>
     <th style="width:36px"><div class="th-i">#</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
-    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
-    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"></use></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"></use></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"></use></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"></use></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"></use></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"></use></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"></use></svg></div></th>
   </tr></thead>
   <tbody>
-    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Collect socio-economic status data per WAU zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Review census/survey data; consult Statistics Sierra Leone and urban planning</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Assess waste management and household materials per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Qualitative assessment + satellite imagery; engage NaCSA / waste management authorities</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Document level of education per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Ministry of Education data; DHS/Census secondary sources</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Map presence and extent of slums per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">UN-Habitat / OpenStreetMap data; satellite imagery review; community consultation</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">5</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Identify stagnant bodies of water per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Remote sensing (NDWI / Sentinel-2); field verification; entomological records</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">6</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Map areas with high population movement from rural areas</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Mobile data / flow datasets; migration statistics; key informant interviews</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">7</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Document other WAU-specific characteristics affecting malaria risk</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Qualitative FGDs / KIIs with health, education and urban planning departments</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Collect socio-economic status data per WAU zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Desk review of DHS 2019/MIS 2021 data</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="vyd1vl"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="htulad"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="5pbc8h" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Assess waste management and household materials per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Qualitative assessment + satellite imagery; engage waste management authorities (ESICOM)</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="597i98"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="o1g807"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="oqjf2" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Document level of education per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false"><span style="background-color: rgb(255, 255, 255);">Desk review of </span>DHS 2019/MIS 2021</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="xxljt"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="mu5t9j"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="ypcr9uc" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Map presence and extent of slums per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Request from Statistics Sierra Leone/Satellite Imagery/Sierra Leone Urban Malaria Research</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="cyd06p"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="4v6am"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="hrfqc9" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">5</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Identify stagnant bodies of water per zone</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="true">Remote sensing (NDWI / Sentinel-2); field verification; entomological records (PMI Evolve)</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="7ihdel"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="jappee"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="80q7yj" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">6</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Map areas with high population movement from rural areas</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Mobile data / flow datasets; migration statistics; key informant interviews</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)" fdprocessedid="9yktj"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Thinking about the data source for this.</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="p9y327d"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="ey7za4d" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">7</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Document other WAU-specific characteristics affecting malaria risk</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Low coverage, access and use of ITNs. Poor sanitation; Hard-to-reach areas.</td><td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="ltax3r"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="bq1h3"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="tq34bf" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
   </tbody>
 </table>
-<button class="add-row-btn" onclick="addRow('t2')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+<button class="add-row-btn" onclick="addRow('t2')" fdprocessedid="1gqvzc" style="display: none;"><svg style="width:15px;height:15px"><use href="#ic-plus"></use></svg> Add Row</button>
 </div>
 
 <!-- ─────────────────────────────────────────────────────────
@@ -756,22 +775,22 @@ td[contenteditable="true"]:empty::before {
 <table id="t3">
   <thead><tr>
     <th style="width:36px"><div class="th-i">#</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
-    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
-    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"></use></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"></use></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"></use></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"></use></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"></use></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"></use></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"></use></svg></div></th>
   </tr></thead>
   <tbody>
-    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Stratify WAU zones by malaria risk using combined hard &amp; soft data</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Composite risk scoring; GIS overlay analysis; present results to NMCP team</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Depends on completion of data collection tasks</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Prioritize schools covering students in highest-risk zones</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Link school catchment areas to zone risk scores; rank schools by risk burden</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Convene multi-sectoral stakeholder meeting for SBD prioritization validation</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Invite Education, Urban Planning, Health (incl. NTDs) depts; present stratification; agree on priorities</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Calculate per-school SBD cost (nets + ops) at different prioritization levels</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>CHAI</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Brighton Gambinga</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Unit cost × student count; model scenarios (top 25%, 50%, 100% of schools); present cost envelope</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">CHAI responsible for prevention costing</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Stratify WAU zones by malaria risk using combined hard &amp; soft data</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Malaria Case Incidence stratified by zone</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="2ykub4"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Data is available. Working on the map</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="yy5y4"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="8xoc6j" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Prioritize schools covering students in highest-risk zones</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Link school catchment areas to zone risk scores; rank schools by risk burden</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)" fdprocessedid="t4lp5k"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="olevaj"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="ytff2" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Convene multi-sectoral stakeholder meeting for SBD prioritization validation</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Invite Education, Urban Planning, Health (incl. NTDs) depts; present stratification; agree on priorities</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="i9ujyt"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="b9xeae"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="5cjn0e" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Calculate per-school SBD cost (nets + ops) at different prioritization levels</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>CHAI</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Brighton Gambinga</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Included in the NSP 2026-2030 assumption and and budget.</td><td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="eqozi"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">CHAI responsible for prevention costing</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="nv6ayg"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="xu4enb" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
   </tbody>
 </table>
-<button class="add-row-btn" onclick="addRow('t3')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+<button class="add-row-btn" onclick="addRow('t3')" fdprocessedid="2gs97r" style="display: none;"><svg style="width:15px;height:15px"><use href="#ic-plus"></use></svg> Add Row</button>
 </div>
 
 <!-- ─────────────────────────────────────────────────────────
@@ -785,24 +804,24 @@ td[contenteditable="true"]:empty::before {
 <table id="t4">
   <thead><tr>
     <th style="width:36px"><div class="th-i">#</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
-    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
-    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"></use></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"></use></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"></use></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"></use></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"></use></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"></use></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"></use></svg></div></th>
   </tr></thead>
   <tbody>
-    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Define and review urban area criteria for ITN campaign targeting</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Agree on urban classification threshold; overlay with population data and malaria burden</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Update malaria incidence data with 2025 figures for all districts</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Pull 2025 data from DHIS2/NMDR; calculate crude and adjusted incidence by district; validate</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile malaria mortality data up to 2025</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Extract inpatient malaria deaths from DHIS2; review CRVS/verbal autopsy data; trend analysis</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Finalize best source for access-to-care indicator (trigger stakeholder discussion)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Review options: DHS, OpenStreetMap friction surface, WorldPop AccessMod; stakeholder discussion</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Needs formal consensus decision</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">5</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile entomological data: insecticide resistance, biting &amp; resting behaviour</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP Entomology</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Collate existing resistance testing reports; map data by district; identify gaps for new collections</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">6</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Identify and document additional prioritization criteria for ITN campaign</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Internal NMCP review; communicate agreed additional criteria to team by following week</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Due: communicated next week per meeting</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Define and review urban area criteria for ITN campaign targeting</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Incidence, ITN access and use, residence (Cities and bigger towns will be selected for SBD and will apply the microstratification to bigger towns and cities to target SBD)&nbsp;</td><td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="ebz0i"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="kvk708"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="j6i3ca" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Update malaria incidence data with 2025 figures for all districts</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Extract, clean and plot data in maps</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="5vwg6l"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="jfjd7p"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="w16jkl" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Compile malaria mortality data up to 2025</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Extract, clean and plot data in maps</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="rf5bqf"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">—</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="hq28y"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="m1y4crh" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">4</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Finalize best source for access-to-care indicator (trigger stakeholder discussion)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">WorldPop AccessMod and Health facilities coordinates</td><td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="jh9ckb"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="l0x6g"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="wi26lh" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">5</td><td class="c-task" contenteditable="false" data-ph="Click to edit…" spellcheck="false">Compile entomological data: insecticide resistance, biting &amp; resting behaviour</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Mohamed Sillah-Kanu</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP /PMI Evolve</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Collate existing resistance data from the PMI entomological surveillance</td><td class="c-st"><select class="status-sel s-done" onchange="syncStatus(this)" fdprocessedid="dzoum6"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…"><br></td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="c7ksb"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="vnv845" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">6</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Identify and document additional prioritization criteria for ITN campaign</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Will discuss with the team internally</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="3do7jif"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Consider ITN durability</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="itxzo"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="pj4thw" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
   </tbody>
 </table>
-<button class="add-row-btn" onclick="addRow('t4')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+<button class="add-row-btn" onclick="addRow('t4')" fdprocessedid="wv96ra" style="display: none;"><svg style="width:15px;height:15px"><use href="#ic-plus"></use></svg> Add Row</button>
 </div>
 
 <!-- ─────────────────────────────────────────────────────────
@@ -816,20 +835,20 @@ td[contenteditable="true"]:empty::before {
 <table id="t5">
   <thead><tr>
     <th style="width:36px"><div class="th-i">#</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
-    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
-    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"></use></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"></use></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"></use></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"></use></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"></use></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"></use></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"></use></svg></div></th>
   </tr></thead>
   <tbody>
-    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Define purpose and scope of spatial emanator pilot (island elimination vs. low net-use areas)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Internal discussion to pin down objectives; document decision rationale and pilot design concept</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Dual-purpose: island elimination (A) and/or low net-usage areas (B)</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Explore NTDs collaboration for spatial emanator cross-cutting use</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Dr. Mac-Abdul Falama</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NTD Dept</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Joint meeting with NTDs team; identify shared target areas and co-implementation potential</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Cross-cutting with NTDs plan</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Define purpose and scope of spatial emanator pilot (island elimination vs. low net-use areas)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Dr. Mac-Abdul Falama</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Internal discussion to pin down objectives; document decision rationale and pilot design concept</td><td class="c-st"><select class="status-sel s-pend" onchange="syncStatus(this)" fdprocessedid="8625z"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Dual-purpose: island elimination (A) and/or low net-usage areas (B)</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="exfrzn"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="dhb69" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Explore NTDs collaboration for spatial emanator cross-cutting use</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Dr. Mac-Abdul Falama</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NTD Dept</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Joint meeting with NTDs team; identify shared target areas and co-implementation potential</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)" fdprocessedid="zplyl"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Cross-cutting with NTDs plan</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="y36kf8"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="5erp4k" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
   </tbody>
 </table>
-<button class="add-row-btn" onclick="addRow('t5')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+<button class="add-row-btn" onclick="addRow('t5')" fdprocessedid="3ic4o4" style="display: none;"><svg style="width:15px;height:15px"><use href="#ic-plus"></use></svg> Add Row</button>
 </div>
 
 <!-- ─────────────────────────────────────────────────────────
@@ -843,21 +862,48 @@ td[contenteditable="true"]:empty::before {
 <table id="t6">
   <thead><tr>
     <th style="width:36px"><div class="th-i">#</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"/></svg> Task / Deliverable</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"/></svg> Responsible</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"/></svg> Approach</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"/></svg> Status</div></th>
-    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"/></svg> Comments</div></th>
-    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"/></svg></div></th>
-    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"/></svg></div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-task"></use></svg> Task / Deliverable</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-person"></use></svg> Responsible</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-search"></use></svg> Approach</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-status"></use></svg> Status</div></th>
+    <th><div class="th-i"><svg class="ic ic-sm"><use href="#ic-notes"></use></svg> Comments</div></th>
+    <th style="width:46px" title="Deliverable Link"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-link"></use></svg></div></th>
+    <th style="width:36px"><div class="th-i"><svg class="ic ic-sm"><use href="#ic-cog"></use></svg></div></th>
   </tr></thead>
   <tbody>
-    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Cost prioritized prevention intervention scenarios</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>CHAI</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Brighton Gambinga</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Prevention interventions costing tool; model multiple scenarios; present cost envelopes to NMCP</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">CHAI scope: prevention only</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Model projected impact outcomes for prioritized scenarios</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>Imperial College</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>R. Sheppard</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>P. Gething</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Mathematical modelling (OpenMalaria/similar); scenarios linked to NMCP's prioritization framework</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Support from Imperial College &amp; The Kids Research Institute</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">NMCP to identify final combination of prioritized scenarios (costs + impact)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"/></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Decision workshop; compare costed scenarios with projected impact; finalize implementation plan</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)"><option value="not-yet" selected>Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Depends on outputs from CHAI &amp; Imperial College</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link"><svg style="width:16px;height:16px"><use href="#ic-link-off"/></svg></button><div class="link-input-wrap"></div></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete"><svg style="width:14px;height:14px"><use href="#ic-x"/></svg></button></td></tr>
-  </tbody>
+    <tr><td class="c-no">1</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Cost prioritized prevention intervention scenarios</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>CHAI</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Brighton Gambinga</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Prevention interventions costing tool; model multiple scenarios; present cost envelopes to NMCP</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)" fdprocessedid="4c0kcp"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">CHAI scope: prevention only</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="44yd7"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="smoo2d" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">2</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">Model projected impact outcomes for prioritized scenarios</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>Imperial College</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>R. Sheppard</span> <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>P. Winskill</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…" spellcheck="false">Mathematical modelling ; scenarios linked to NMCP's prioritization framework</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)" fdprocessedid="dnwbk8"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Support from Imperial College&nbsp;</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="dmcumc"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="k8y9un" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+    <tr><td class="c-no">3</td><td class="c-task" contenteditable="false" data-ph="Click to edit…">NMCP to identify final combination of prioritized scenarios (costs + impact)</td><td class="c-who" contenteditable="false" data-ph="Responsible…"><span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span></td><td class="c-app" contenteditable="false" data-ph="Describe approach…">Decision workshop; compare costed scenarios with projected impact; finalize implementation plan</td><td class="c-st"><select class="status-sel s-notyet" onchange="syncStatus(this)" fdprocessedid="hgetq"><option value="not-yet" selected="">Not Yet</option><option value="pending">Pending</option><option value="done">Done</option></select></td><td class="c-note" contenteditable="false" data-ph="Add comment…">Depends on outputs from CHAI &amp; Imperial College</td><td class="c-link"><div class="link-anchor"><button class="btn-link" onclick="handleLink(this)" title="Paste deliverable link" data-url="" fdprocessedid="z0jgpd"><svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg></button><div class="link-input-wrap"></div><a class="pdf-link" target="_blank" href=""></a></div></td><td class="c-act"><button class="btn-del" onclick="delRow(this)" title="Delete" fdprocessedid="z57blr" style="display: none;"><svg style="width:14px;height:14px"><use href="#ic-x"></use></svg></button></td></tr>
+  <tr>
+    <td class="c-no">4</td>
+    <td class="c-task" contenteditable="false" data-ph="Click to edit…">New task — click to edit</td>
+    <td class="c-who" contenteditable="false" data-ph="Responsible…">
+      <span class="pill"><svg class="ic ic-sm"><use href="#ic-person"></use></svg>NMCP</span>
+    </td>
+    <td class="c-app" contenteditable="false" data-ph="Describe approach…">—</td>
+    <td class="c-st">
+      <select class="status-sel s-notyet" onchange="syncStatus(this)">
+        <option value="not-yet" selected="">Not Yet</option>
+        <option value="pending">Pending</option>
+        <option value="done">Done</option>
+      </select>
+    </td>
+    <td class="c-note" contenteditable="false" data-ph="Add comment…">—</td>
+    <td class="c-link">
+      <div class="link-anchor">
+        <button class="btn-link" onclick="handleLink(this)" title="No link — click to add" data-url="">
+          <svg style="width:16px;height:16px"><use href="#ic-link-off"></use></svg>
+        </button>
+        <div class="link-input-wrap"></div>
+      <a class="pdf-link" target="_blank" href=""></a></div>
+    </td>
+    <td class="c-act">
+      <button class="btn-del" onclick="delRow(this)" title="Delete" style="display: none;">
+        <svg style="width:14px;height:14px"><use href="#ic-x"></use></svg>
+      </button>
+    </td></tr></tbody>
 </table>
-<button class="add-row-btn" onclick="addRow('t6')"><svg style="width:15px;height:15px"><use href="#ic-plus"/></svg> Add Row</button>
+<button class="add-row-btn" onclick="addRow('t6')" fdprocessedid="db1wu" style="display: none;"><svg style="width:15px;height:15px"><use href="#ic-plus"></use></svg> Add Row</button>
 </div>
 
 </div><!-- /container -->
@@ -868,7 +914,7 @@ td[contenteditable="true"]:empty::before {
   <p>Enable Editing → Update cells → Paste links → Download HTML → Re-upload to preserve all changes</p>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" style="display: none;">HTML downloaded with all changes preserved.</div>
 
 <!-- ══ SCRIPT ════════════════════════════════════════════════ -->
 <script>
@@ -1179,5 +1225,6 @@ function showToast(msg) {
   el._t = setTimeout(() => el.style.display='none', 3000);
 }
 </script>
-</body>
-</html>
+
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></body></html>
